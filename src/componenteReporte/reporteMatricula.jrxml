@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="47123e37-164d-4a1f-800d-809b22268310">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="idmatricula" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     matricula.`idmatricula` AS matricula_idmatricula,
+     matricula.`fecha` AS matricula_fecha,
+     alumno.`nombres` AS alumno_nombres,
+     alumno.`apellidos` AS alumno_apellidos,
+     alumno.`sexo` AS alumno_sexo,
+     alumno.`telefono` AS alumno_telefono,
+     alumno.`direccion` AS alumno_direccion,
+     alumno.`fechaNacimiento` AS alumno_fechaNacimiento,
+     apoderado.`nombres` AS apoderado_nombres,
+     apoderado.`apellidos` AS apoderado_apellidos,
+     apoderado.`telefono` AS apoderado_telefono,
+     apoderado.`direccion` AS apoderado_direccion,
+     apoderado.`estadoCivil` AS apoderado_estadoCivil
+FROM
+     `alumno` alumno INNER JOIN `matricula` matricula ON alumno.`idalumno` = matricula.`alumno_idalumno`
+     INNER JOIN `apoderado` apoderado ON alumno.`apoderado_idapoderado` = apoderado.`idapoderado`
+WHERE
+     idmatricula = $P{idmatricula}]]>
+	</queryString>
+	<field name="matricula_idmatricula" class="java.lang.String"/>
+	<field name="matricula_fecha" class="java.sql.Date"/>
+	<field name="alumno_nombres" class="java.lang.String"/>
+	<field name="alumno_apellidos" class="java.lang.String"/>
+	<field name="alumno_sexo" class="java.lang.String"/>
+	<field name="alumno_telefono" class="java.lang.String"/>
+	<field name="alumno_direccion" class="java.lang.String"/>
+	<field name="alumno_fechaNacimiento" class="java.sql.Date"/>
+	<field name="apoderado_nombres" class="java.lang.String"/>
+	<field name="apoderado_apellidos" class="java.lang.String"/>
+	<field name="apoderado_telefono" class="java.lang.String"/>
+	<field name="apoderado_direccion" class="java.lang.String"/>
+	<field name="apoderado_estadoCivil" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="a8f7b100-6af6-4c39-bf72-60376130c634" x="180" y="11" width="205" height="20"/>
+				<textElement>
+					<font fontName="Arial Black" size="14"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE MATRICULA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="318" splitType="Stretch">
+			<textField>
+				<reportElement uuid="c4afb519-3eb1-4211-b5e3-207ba3eb8950" x="118" y="0" width="133" height="20"/>
+				<textElement>
+					<font fontName="Comic Sans MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{matricula_idmatricula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3d1489d5-ca9a-4249-b174-296aeb1738bd" x="441" y="0" width="101" height="20"/>
+				<textElement>
+					<font fontName="Comic Sans MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{matricula_fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="6f57f584-82b1-4d96-8b0b-a9f427c697ef" x="337" y="0" width="104" height="20"/>
+				<textElement>
+					<font fontName="Comic Sans MS"/>
+				</textElement>
+				<text><![CDATA[Fecha de Matricula:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d4338994-064c-4f40-993d-3cfe1c339e37" x="26" y="0" width="92" height="20"/>
+				<textElement>
+					<font fontName="Comic Sans MS"/>
+				</textElement>
+				<text><![CDATA[Código Matricula:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="1140da2b-705c-43d8-8f77-717341511f4e" x="129" y="50" width="92" height="20"/>
+				<textElement>
+					<font fontName="Comic Sans MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alumno_nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b64cab4e-f07f-451a-9b3e-c72debb602b6" x="129" y="70" width="92" height="20"/>
+				<textElement>
+					<font fontName="Comic Sans MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alumno_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d9dc13ca-9f36-410a-89e3-a93627f8b447" x="129" y="90" width="92" height="20"/>
+				<textElement>
+					<font fontName="Comic Sans MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alumno_sexo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="72e07ba8-094e-41ee-a88c-bb3495451c21" x="129" y="110" width="92" height="20"/>
+				<textElement>
+					<font fontName="Comic Sans MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alumno_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="df7b4773-3825-4214-ba3f-76077400b354" x="129" y="130" width="92" height="20"/>
+				<textElement>
+					<font fontName="Comic Sans MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alumno_direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="fdf5aa9a-ba94-4960-ae1e-6836c3f07f0a" x="129" y="150" width="92" height="20"/>
+				<textElement>
+					<font fontName="Comic Sans MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alumno_fechaNacimiento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="aca68c82-4c05-4467-bfa6-e0f9d4f3ff1a" x="65" y="50" width="53" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Comic Sans MS" size="11"/>
+				</textElement>
+				<text><![CDATA[Nombres:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="442dbb52-5bdf-42b3-a54c-9af623836784" x="65" y="70" width="53" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Comic Sans MS" size="11"/>
+				</textElement>
+				<text><![CDATA[Apellidos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3e1b7987-33b7-435c-8800-686ff2f0369e" x="65" y="90" width="53" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Comic Sans MS" size="11"/>
+				</textElement>
+				<text><![CDATA[Sexo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="12672114-4626-4415-b637-593883634886" x="65" y="110" width="53" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Comic Sans MS" size="11"/>
+				</textElement>
+				<text><![CDATA[Telefono:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f981ad76-7ba5-4133-a0e8-6a7b680fd4a2" x="65" y="130" width="53" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Comic Sans MS" size="11"/>
+				</textElement>
+				<text><![CDATA[Dirección:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cf6f9d54-623b-46e9-968f-dd93b5dc3a90" x="8" y="150" width="110" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Comic Sans MS" size="11"/>
+				</textElement>
+				<text><![CDATA[Fecha de Nacimiento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="db45d8b4-6fab-4410-a1b1-802fdba81651" x="8" y="30" width="139" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial Black" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATOS DEL ALUMNO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="db45d8b4-6fab-4410-a1b1-802fdba81651" x="286" y="30" width="82" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial Black" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[APODERADO]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="57648e89-bb65-4df8-b353-a2c9b9115923" x="385" y="50" width="111" height="20"/>
+				<textElement>
+					<font fontName="Comic Sans MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apoderado_nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9ebd895c-d5cd-4aec-adfb-44bb30ff5673" x="385" y="70" width="111" height="20"/>
+				<textElement>
+					<font fontName="Comic Sans MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apoderado_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4a8457ee-134b-4b45-9ef0-c7f427d2619d" x="385" y="90" width="111" height="20"/>
+				<textElement>
+					<font fontName="Comic Sans MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apoderado_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9f4b2614-f22b-4cad-938d-72e2a6b7c4ef" x="385" y="110" width="111" height="20"/>
+				<textElement>
+					<font fontName="Comic Sans MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apoderado_direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a33764d2-53cd-4817-b006-9849897e574e" x="385" y="130" width="111" height="20"/>
+				<textElement>
+					<font fontName="Comic Sans MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apoderado_estadoCivil}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b956fd36-9842-45d8-8057-775c8b6c7c7b" x="303" y="50" width="65" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Comic Sans MS" size="11"/>
+				</textElement>
+				<text><![CDATA[Nombres:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="adee4d4c-3222-4639-b7b0-d43746563b97" x="303" y="70" width="65" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Comic Sans MS" size="11"/>
+				</textElement>
+				<text><![CDATA[Apellidos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2d1f4f30-bbeb-4f95-86f2-d290704cdce6" x="303" y="90" width="65" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Comic Sans MS" size="11"/>
+				</textElement>
+				<text><![CDATA[Telefono:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="edafd3a9-24fe-4764-a6b7-7979703bf1c9" x="303" y="110" width="65" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Comic Sans MS" size="11"/>
+				</textElement>
+				<text><![CDATA[Dirección:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6a3fbe49-44ef-4813-ae5e-929c1cc2cd0a" x="303" y="130" width="65" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Comic Sans MS" size="11"/>
+				</textElement>
+				<text><![CDATA[Estado Civil:]]></text>
+			</staticText>
+			<subreport>
+				<reportElement uuid="87835f16-b14c-46b0-90e6-fc0bb04a9994" x="0" y="170" width="555" height="100"/>
+				<subreportParameter name="id">
+					<subreportParameterExpression><![CDATA[$P{idmatricula}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["reporteCursos.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

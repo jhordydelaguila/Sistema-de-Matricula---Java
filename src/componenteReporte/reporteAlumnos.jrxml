@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="04381bcf-2e00-4e91-aab6-665fe8706966">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     alumno.`nombres` AS alumno_nombres,
+     alumno.`apellidos` AS alumno_apellidos,
+     alumno.`sexo` AS alumno_sexo,
+     alumno.`telefono` AS alumno_telefono,
+     alumno.`direccion` AS alumno_direccion,
+     alumno.`fechaNacimiento` AS alumno_fechaNacimiento,
+     apoderado.`nombres` AS apoderado_nombres,
+     apoderado.`apellidos` AS apoderado_apellidos
+FROM
+     `apoderado` apoderado INNER JOIN `alumno` alumno ON apoderado.`idapoderado` = alumno.`apoderado_idapoderado`]]>
+	</queryString>
+	<field name="alumno_nombres" class="java.lang.String"/>
+	<field name="alumno_apellidos" class="java.lang.String"/>
+	<field name="alumno_sexo" class="java.lang.String"/>
+	<field name="alumno_telefono" class="java.lang.String"/>
+	<field name="alumno_direccion" class="java.lang.String"/>
+	<field name="alumno_fechaNacimiento" class="java.sql.Date"/>
+	<field name="apoderado_nombres" class="java.lang.String"/>
+	<field name="apoderado_apellidos" class="java.lang.String"/>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="002f8c0a-01f8-4546-a9c2-3b5081e2f359" style="Title" x="0" y="0" width="802" height="67"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[REPORTE ALUMNOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f6529d04-21cf-4a42-8d0d-6d32313bd122" style="SubTitle" x="232" y="67" width="568" height="37"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Alumno registrados correctamente]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="efeb4dd8-689e-4f00-a69f-64a78e90669f" mode="Opaque" x="97" y="5" width="705" height="20" backcolor="#666666"/>
+				<staticText>
+					<reportElement uuid="b6b4208b-b0e8-4e87-b810-00941b111bc4" style="Column header" x="88" y="0" width="88" height="15"/>
+					<textElement/>
+					<text><![CDATA[Apellido]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="670d9450-be13-4913-bdb4-949d57e895cd" style="Column header" x="176" y="0" width="88" height="15"/>
+					<textElement/>
+					<text><![CDATA[Sexo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="1c79b3f5-e77b-463c-a7ca-29ea70e44200" style="Column header" x="264" y="0" width="88" height="15"/>
+					<textElement/>
+					<text><![CDATA[Telefono]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="cbbc62a9-bc3c-483b-b649-dec666df46a4" style="Column header" x="352" y="0" width="88" height="15"/>
+					<textElement/>
+					<text><![CDATA[Dirección]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="03cefc9d-41e4-471b-9bcf-af71d438c519" style="Column header" x="440" y="0" width="88" height="15"/>
+					<textElement/>
+					<text><![CDATA[Fecha de Nacimiento]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="a293ff05-2c29-4c70-b403-beb58a6636c0" style="Column header" x="528" y="0" width="88" height="15"/>
+					<textElement/>
+					<text><![CDATA[Apoderado Nombre]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="82899bb7-ab2e-44ce-a99d-84a2f8657627" style="Column header" x="616" y="0" width="88" height="15"/>
+					<textElement/>
+					<text><![CDATA[Apellidos]]></text>
+				</staticText>
+				<elementGroup>
+					<staticText>
+						<reportElement uuid="430c842c-959c-4c0d-8503-346161883db7" style="Column header" x="0" y="0" width="88" height="15"/>
+						<textElement/>
+						<text><![CDATA[Nombre]]></text>
+					</staticText>
+				</elementGroup>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement uuid="eeb90d18-1f59-415e-a14f-dac2070eb574" x="97" y="1" width="705" height="15"/>
+				<textField>
+					<reportElement uuid="e213e87b-52b9-441e-bf91-f9b4895928fe" style="Detail" x="0" y="0" width="88" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{alumno_nombres}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="ba7ab797-e4e1-4036-932e-89491e3a64ed" style="Detail" x="88" y="0" width="88" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{alumno_apellidos}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="c5145f48-17d7-402a-b775-dbbeb61a6855" style="Detail" x="176" y="0" width="88" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{alumno_sexo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="e1fb164a-cb24-400a-a40c-663b78beb6bb" style="Detail" x="264" y="0" width="88" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{alumno_telefono}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="56b43343-b93a-4b22-8b92-f90039ab337d" style="Detail" x="352" y="0" width="88" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{alumno_direccion}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="f2cef81c-1e43-485d-997d-dca09f8d35d4" style="Detail" x="440" y="0" width="88" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{alumno_fechaNacimiento}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="3bb7ab14-cbd5-4e98-aa37-473d80c3bc6a" style="Detail" x="528" y="0" width="88" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{apoderado_nombres}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="353355b4-877f-4950-a6ab-40cd4aa0b252" style="Detail" x="616" y="0" width="88" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{apoderado_apellidos}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement uuid="6d671789-51e8-4769-ae35-4c9d7575ef62" positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="42" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="c543986a-23f7-4f3b-b7b7-16ca5fc55f31" style="Column header" x="671" y="0" width="131" height="20" forecolor="#000000"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

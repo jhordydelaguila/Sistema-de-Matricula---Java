@@ -1,0 +1,14 @@
+
+----------------------------------------------------------------
+BY: jhordy Del Aguila
+
+La BD esta en un diagrama, puedes abrir el diagrama con el programa DBDesigner4
+y despues puedes buscas la opcion importar a bd.
+
+Una vez importado la bd adjuntas con algun Gestor de BD de MySQL. 
+
+Cualquier consulta: jhordydelaguilaquispe@gmail.com
+
+Gracias!!!. 
+
+Nota: Aca dejo el programa DBDesigner4[1].0.5.6_Setup para que lo puedas instalar sin problemas.
